@@ -10,5 +10,7 @@
         android:id="@+id/plain_text_input"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:inputType="text"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
