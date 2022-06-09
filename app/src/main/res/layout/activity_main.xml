@@ -7,10 +7,10 @@
     tools:context=".MainActivity"
     android:padding="16dp">
     <EditText
-        android:id="@+id/plain_text_input"
+        android:id="@+id/cost_of_service"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:inputType="text"/>
+        android:inputType="number"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
