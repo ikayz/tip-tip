@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val cost = stringInTextField.toDoubleOrNull()
 
         if (cost == null) {
+            binding.tipResult.text = ""
             Toast.makeText(this, "Tip cannot be empty or blank", Toast.LENGTH_SHORT).show()
             return
         }
