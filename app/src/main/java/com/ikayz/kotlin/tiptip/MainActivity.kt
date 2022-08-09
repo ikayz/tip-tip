@@ -2,6 +2,7 @@ package com.ikayz.kotlin.tiptip
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.ikayz.kotlin.tiptip.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
@@ -19,7 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateTip() {
         val stringInTextField = binding.costOfService.text.toString()
-        val cost = stringInTextField.toDouble()
+        val cost = stringInTextField.toDoubleOrNull()
+
+        if (cost == null) {
+            Toast.makeText(this, "Tip cannot be empty or blank", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val selectedId = binding.tipOptions.checkedRadioButtonId
 
         val tipPercentage = when (selectedId) {
