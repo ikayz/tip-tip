@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         val stringInTextField = binding.costOfService.text.toString()
         val cost = stringInTextField.toDoubleOrNull()
 
-        if (cost == null) {
-            binding.tipResult.text = ""
+        if (cost == null || cost == 0.0) {
+            displayTip(0.0)
             Toast.makeText(this, "Tip cannot be empty or blank", Toast.LENGTH_SHORT).show()
             return
         }
@@ -35,12 +35,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         var tip = tipPercentage * cost
-        val roundUp = binding.roundUpSwitch.isChecked
 
-        if (roundUp) {
+        if (binding.roundUpSwitch.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
 
+        displayTip(tip)
+    }
+
+    private fun displayTip(tip: Double) {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
