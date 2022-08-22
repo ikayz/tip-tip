@@ -12,7 +12,7 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.calculateButton.setOnClickListener { calculateTip() }
 
-        binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode) }
+        binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            )
+        }
     }
 
     private fun calculateTip() {
@@ -54,11 +59,11 @@ class MainActivity : AppCompatActivity() {
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 
-    private fun handleKeyEvent(view: View, keyCode: Int) : Boolean {
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
             // Hide the keyboard
             val inputMethodManager =
-                getSystemService(Context.INPUT_METHOD_SERVICE ) as InputMethodManager
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
             return true
         }
