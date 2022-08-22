@@ -12,7 +12,7 @@
     </style>
     <style name="Widget.TipTime.CompoundButton.RadioButton"
         parent="Widget.MaterialComponents.CompoundButton.RadioButton">
-        <item name="android:paddingStart">@dimen/min_text_height</item>
+        <item name="android:paddingStart">@dimen/padding</item>
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 </resources>
